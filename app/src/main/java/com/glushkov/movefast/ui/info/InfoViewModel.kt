@@ -6,12 +6,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.glushkov.movefast.data.view.PhotoViewData
-import com.glushkov.movefast.repository.PhotoRepository
+import com.glushkov.movefast.repository.IPhotoRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class InfoViewModel (private val photoRepository: PhotoRepository) : ViewModel() {
+class InfoViewModel (private val photoRepository: IPhotoRepository) : ViewModel() {
 
     private val _photoInfo: MutableLiveData<PhotoViewData> = MutableLiveData()
     val photoInfo: LiveData<PhotoViewData>

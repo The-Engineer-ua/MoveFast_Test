@@ -59,6 +59,7 @@ dependencies {
 
     //UI
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'jp.wasabeef:picasso-transformations:2.4.0'
 
     // activity, fragment
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_extension_version"

@@ -1,8 +1,6 @@
 package com.glushkov.movefast.repository.constants
 
-import com.glushkov.movefast.data.dto.LinksDto
-import com.glushkov.movefast.data.dto.PhotoDto
-import com.glushkov.movefast.data.dto.UrlsDto
+import com.glushkov.movefast.data.dto.*
 
 val photo: PhotoDto = PhotoDto(
     "123",
@@ -24,7 +22,15 @@ val photo: PhotoDto = PhotoDto(
         "https://download.location.com",
     ),
     132,
-    false
+    false,
+    UserDto(
+        "test",
+        ProfileImageDto(
+            "small",
+            "medium",
+            "large"
+        )
+    )
 )
 
 
@@ -48,7 +54,15 @@ val photo2: PhotoDto = PhotoDto(
         "https://download.location2.com",
     ),
     444,
-    false
+    false,
+    UserDto(
+        "test2",
+        ProfileImageDto(
+            "small",
+            "medium",
+            "large"
+        )
+    )
 )
 
 val listPhotoSingle = listOf(photo)

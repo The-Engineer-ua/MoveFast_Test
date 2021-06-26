@@ -14,5 +14,5 @@ data class PhotoDto(
     val likes: Int?,
     @SerializedName("liked_by_user")
     val isLiked: Boolean?,
-
+    val user: UserDto
 )

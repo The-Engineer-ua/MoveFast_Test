@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
 
     private val pagingScrollListener = object : PaginationScrollListener() {
         override fun onLoadMore(currentPage: Int) {
-            //TODO - loading
+            //Loading can be added here.
             vm.getListPhoto(currentPage)
         }
     }
@@ -43,14 +43,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun onPageLoaded() {
-        //TODO hide loading
+        //Loading stop can be added here.
         pagingScrollListener.increasePage()
     }
 
     private fun initialization() {
+        //Initial data request
         vm.getListPhoto(1)
         pagingScrollListener.reset()
 
+        //Navigation click from item to info screen
         photosAdapter.setOnClick { id ->
             findNavController().navigate(
                 HomeFragmentDirections.actionHomeFragmentToInfoFragment(
@@ -59,6 +61,7 @@ class HomeFragment : Fragment() {
             )
         }
 
+        //Manage list
         binding.listPhoto.apply {
             val lManager = LinearLayoutManager(requireContext())
             layoutManager = lManager
@@ -67,6 +70,7 @@ class HomeFragment : Fragment() {
             adapter = photosAdapter
         }
 
+        //Manage received data
         vm.photoList.observe(viewLifecycleOwner) {
             photosAdapter.addData(it)
             onPageLoaded()

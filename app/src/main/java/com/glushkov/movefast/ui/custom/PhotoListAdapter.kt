@@ -7,6 +7,7 @@ import com.glushkov.movefast.R
 import com.glushkov.movefast.data.view.PhotoViewData
 import com.glushkov.movefast.databinding.ItemPhotoBinding
 import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 
 class PhotoListAdapter : RecyclerView.Adapter<PhotoListAdapter.ViewHolder>() {
 
@@ -61,6 +62,16 @@ class PhotoListAdapter : RecyclerView.Adapter<PhotoListAdapter.ViewHolder>() {
             .centerCrop()
             .into(binding.imgThumbnail)
 
+        //Profile image
+        Picasso.get().load(model.user.image)
+            .fit()
+            .transform(CropCircleTransformation())
+            .into(binding.imgProfile)
+
+        binding.txtProfile.text = model.user.username
+        binding.txtLikes.text = model.likes.toString()
+        binding.txtProfileSub.text = model.user.username
+        binding.txtDescription.text = model.description ?: model.altDescription
 
         binding.item.setOnClickListener {
             onClickAction(model.id)

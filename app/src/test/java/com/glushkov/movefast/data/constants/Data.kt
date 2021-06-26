@@ -1,8 +1,6 @@
 package com.glushkov.movefast.data.constants
 
-import com.glushkov.movefast.data.dto.LinksDto
-import com.glushkov.movefast.data.dto.PhotoDto
-import com.glushkov.movefast.data.dto.UrlsDto
+import com.glushkov.movefast.data.dto.*
 
 const val rawCheckValue = "https://images.unsplash.com/photo-1624385831418-0b481546a059?ixid=MnwyNDIwMjN8MHwxfGFsbHw0fHx8fHx8Mnx8MTYyNDU3MjI2NQ&ixlib=rb-1.2.1"
 const val downloadCheckValue = "https://unsplash.com/photos/nmGk6KoRZ80/download"
@@ -29,7 +27,15 @@ val photoDto = PhotoDto(
             "https://api.unsplash.com/photos/1UI_jN_e9kw/download?ixid=MnwyNDIwMjN8MXwxfGFsbHwxfHx8fHx8Mnx8MTYyNDU3MjI2NQ",
     ),
             16,
-    false
+    false,
+    UserDto(
+        "test",
+        ProfileImageDto(
+            "small",
+            "medium",
+            "large"
+        )
+    )
 )
 
 const val urlsObject = "{\n" +

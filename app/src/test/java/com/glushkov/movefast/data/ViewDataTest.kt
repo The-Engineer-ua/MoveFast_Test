@@ -14,5 +14,7 @@ class ViewDataTest {
         Assert.assertEquals(result.altDescription, photoDto.altDescription)
         Assert.assertEquals(result.thumbnailUrl, photoDto.urls?.small)
         Assert.assertEquals(result.downloadUrl, photoDto.links?.download)
+        Assert.assertEquals(result.user.username, photoDto.user.username)
+        Assert.assertEquals(result.user.image, photoDto.user.profileImage.medium)
     }
 }

@@ -11,4 +11,5 @@ data class PhotoViewData(
     val downloadUrl: String?,
     val likes: Int?,
     val isLiked: Boolean?,
+    val user: UserViewData
 )
