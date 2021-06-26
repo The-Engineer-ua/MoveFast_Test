@@ -1,5 +1,8 @@
-package com.glushkov.movefast.data.ui
+package com.glushkov.movefast.data.view
 
+/**
+ * View data representation model
+ */
 data class PhotoViewData(
     val id: String,
     val description: String?,

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MoveFast_TestTask</string>
+    <string name="image_thumbnail_description">Image thumbnail</string>
 </resources>
