@@ -1,5 +1,6 @@
 package com.glushkov.movefast.repository
 
+import android.util.Log
 import com.glushkov.movefast.data.converters.toViewData
 import com.glushkov.movefast.data.view.PhotoViewData
 import com.glushkov.movefast.network.UnsplashApi
@@ -13,12 +14,22 @@ import com.glushkov.movefast.network.UnsplashApi
 class PhotoRepository(private val unsplashApi: UnsplashApi) : IPhotoRepository {
 
     override suspend fun getPhotoList(page: Int): List<PhotoViewData> {
-        return unsplashApi.getPhotoList(page)
-            .map { it.toViewData() }
+        return try {
+            unsplashApi.getPhotoList(page)
+                .map { it.toViewData() }
+        } catch (e: Exception) {
+            Log.e(PhotoRepository::class.java.name, "Photo list failed", e)
+            emptyList()
+        }
     }
 
-    override suspend fun getPhotoInfo(id: String): PhotoViewData {
-        return unsplashApi.getPhotoInfo(id).toViewData()
+    override suspend fun getPhotoInfo(id: String): PhotoViewData? {
+        return try {
+            unsplashApi.getPhotoInfo(id).toViewData()
+        } catch (e: Exception) {
+            Log.e(PhotoRepository::class.java.name, "Photo info failed", e)
+            null
+        }
     }
 
 }

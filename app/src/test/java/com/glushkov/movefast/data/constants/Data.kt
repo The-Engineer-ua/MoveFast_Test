@@ -1,4 +1,4 @@
-package com.glushkov.movefast
+package com.glushkov.movefast.data.constants
 
 import com.glushkov.movefast.data.dto.LinksDto
 import com.glushkov.movefast.data.dto.PhotoDto

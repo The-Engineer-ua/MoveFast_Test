@@ -1,6 +1,6 @@
 package com.glushkov.movefast.data
 
-import com.glushkov.movefast.*
+import com.glushkov.movefast.data.constants.*
 import com.glushkov.movefast.data.dto.LinksDto
 import com.glushkov.movefast.data.dto.PhotoDto
 import com.glushkov.movefast.data.dto.UrlsDto

@@ -19,5 +19,5 @@ interface IPhotoRepository {
      * @param id [String] Id of the image
      * @return [PhotoViewData]
      */
-    suspend fun getPhotoInfo(id: String): PhotoViewData
+    suspend fun getPhotoInfo(id: String): PhotoViewData?
 }
