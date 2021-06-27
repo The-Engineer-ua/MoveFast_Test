@@ -13,4 +13,8 @@ jobs:
           name: chmod permissions
           command: chmod +x ./gradlew
       - run:
+          name: unit test
+          command: ./gradlew test
+      - run:
+          name: build
           command: ./gradlew build
