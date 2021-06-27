@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_homeFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/infoFragment"
@@ -19,5 +22,16 @@
         <argument
             android:name="id"
             app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.glushkov.movefast.ui.search.SearchFragment"
+        android:label="SearchFragment">
+        <argument
+            android:name="query"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_searchFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
     </fragment>
 </navigation>

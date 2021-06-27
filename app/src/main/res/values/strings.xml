@@ -3,4 +3,9 @@
     <string name="image_thumbnail_description">Image thumbnail</string>
     <string name="likes_icon">Likes icon</string>
     <string name="profile_image">Profile image</string>
+    <string name="search_query_desc">Please, put search query</string>
+    <string name="search_title">Search</string>
+    <string name="cancel">Cancel</string>
+    <string name="search">Search</string>
+    <string name="query_hint">Query should be more than 3 symbols</string>
 </resources>

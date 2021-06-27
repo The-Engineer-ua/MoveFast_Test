@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.glushkov.movefast.R
+import com.glushkov.movefast.databinding.DialogSearchBinding
 import com.glushkov.movefast.databinding.FragmentHomeBinding
 import com.glushkov.movefast.ui.custom.PaginationScrollListener
 import com.glushkov.movefast.ui.custom.PhotoListAdapter
@@ -36,6 +39,12 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    override fun onStop() {
+        super.onStop()
+        photosAdapter.clear()
+        pagingScrollListener.reset()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -48,10 +57,18 @@ class HomeFragment : Fragment() {
     }
 
     private fun initialization() {
+
         //Initial data request
         vm.getListPhoto(1)
         pagingScrollListener.reset()
 
+        initListeners()
+
+        initList()
+        initObserver()
+    }
+
+    private fun initListeners() {
         //Navigation click from item to info screen
         photosAdapter.setOnClick { id ->
             findNavController().navigate(
@@ -60,8 +77,14 @@ class HomeFragment : Fragment() {
                 )
             )
         }
+        //Create search flow
+        binding.floatingActionButton.setOnClickListener {
+            showSearchDialog()
+        }
+    }
 
-        //Manage list
+    private fun initList() {
+        //Manage recycler view
         binding.listPhoto.apply {
             val lManager = LinearLayoutManager(requireContext())
             layoutManager = lManager
@@ -69,11 +92,43 @@ class HomeFragment : Fragment() {
             addOnScrollListener(pagingScrollListener)
             adapter = photosAdapter
         }
+    }
 
+    private fun initObserver() {
         //Manage received data
         vm.photoList.observe(viewLifecycleOwner) {
             photosAdapter.addData(it)
             onPageLoaded()
         }
+    }
+
+    private fun showSearchDialog() {
+        val dialogBinding = DialogSearchBinding.inflate(layoutInflater)
+
+        val alertDialog = AlertDialog.Builder(requireContext(), R.style.AlertDialogTheme)
+            .setView(dialogBinding.root)
+            .setTitle(getString(R.string.search_title))
+            .setCancelable(true)
+            .setPositiveButton(getString(R.string.search), null)
+            .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
+                dialog.cancel()
+            }
+            .create()
+        alertDialog.setOnShowListener {
+            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                val query = dialogBinding.edtQuery.text.toString()
+                if (query.length < 3) {
+                    dialogBinding.txtHint.visibility = View.VISIBLE
+                    return@setOnClickListener
+                }
+                findNavController().navigate(
+                    HomeFragmentDirections.actionHomeFragmentToSearchFragment(query)
+                )
+                alertDialog.dismiss()
+
+            }
+        }
+
+        alertDialog.show()
     }
 }
