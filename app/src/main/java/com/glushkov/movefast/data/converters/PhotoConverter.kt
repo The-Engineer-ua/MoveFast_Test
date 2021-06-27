@@ -1,7 +1,7 @@
 package com.glushkov.movefast.data.converters
 
 import com.glushkov.movefast.data.dto.PhotoDto
-import com.glushkov.movefast.data.dto.UserDto
+import com.glushkov.movefast.data.dto.misc.UserDto
 import com.glushkov.movefast.data.view.PhotoViewData
 import com.glushkov.movefast.data.view.UserViewData
 

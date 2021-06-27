@@ -1,6 +1,11 @@
 package com.glushkov.movefast.repository.constants
 
 import com.glushkov.movefast.data.dto.*
+import com.glushkov.movefast.data.dto.misc.LinksDto
+import com.glushkov.movefast.data.dto.misc.ProfileImageDto
+import com.glushkov.movefast.data.dto.misc.UrlsDto
+import com.glushkov.movefast.data.dto.misc.UserDto
+import com.glushkov.movefast.data.dto.search.SearchDto
 
 val photo: PhotoDto = PhotoDto(
     "123",
@@ -67,3 +72,5 @@ val photo2: PhotoDto = PhotoDto(
 
 val listPhotoSingle = listOf(photo)
 val listPhotoMultiple = listOf(photo, photo2)
+val searchSingle = SearchDto(1, 7, listOf(photo))
+val searchMultiple = SearchDto(1, 3, listOf(photo, photo2))

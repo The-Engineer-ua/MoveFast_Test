@@ -84,6 +84,9 @@ class PhotoRepositoryTestList : KoinTest {
         }
     }
 
+    /**
+     * Negative case to test that nothing fails
+     */
     @Test
     fun test_ApiResponse_Negative_Exception() {
         runBlocking {

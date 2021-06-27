@@ -1,11 +1,19 @@
 package com.glushkov.movefast.data.constants
 
 import com.glushkov.movefast.data.dto.*
+import com.glushkov.movefast.data.dto.misc.LinksDto
+import com.glushkov.movefast.data.dto.misc.ProfileImageDto
+import com.glushkov.movefast.data.dto.misc.UrlsDto
+import com.glushkov.movefast.data.dto.misc.UserDto
+import com.glushkov.movefast.data.dto.search.SearchDto
+import com.glushkov.movefast.repository.constants.photo2
 
 const val rawCheckValue = "https://images.unsplash.com/photo-1624385831418-0b481546a059?ixid=MnwyNDIwMjN8MHwxfGFsbHw0fHx8fHx8Mnx8MTYyNDU3MjI2NQ&ixlib=rb-1.2.1"
 const val downloadCheckValue = "https://unsplash.com/photos/nmGk6KoRZ80/download"
 const val idCheckValue = "1UI_jN_e9kw"
 const val secondIdCheckValue = "gdCBNvEliRs"
+const val totalPagesCheckValue = 7
+const val searchItemIdCheckValue = "eOLpJytrbsQ"
 
 val photoDto = PhotoDto(
     "1UI_jN_e9kw",
@@ -37,6 +45,11 @@ val photoDto = PhotoDto(
         )
     )
 )
+
+val searchDto = SearchDto(
+    1, 7, listOf(photoDto)
+)
+
 
 const val urlsObject = "{\n" +
         "      \"raw\": \"https://images.unsplash.com/photo-1624385831418-0b481546a059?ixid=MnwyNDIwMjN8MHwxfGFsbHw0fHx8fHx8Mnx8MTYyNDU3MjI2NQ&ixlib=rb-1.2.1\",\n" +
@@ -376,3 +389,56 @@ const val fullResponse = "[\n" +
         "    }\n" +
         "  }\n" +
         "]"
+
+const val searchResponse = "{\n" +
+        "  \"total\": 133,\n" +
+        "  \"total_pages\": 7,\n" +
+        "  \"results\": [\n" +
+        "    {\n" +
+        "      \"id\": \"eOLpJytrbsQ\",\n" +
+        "      \"created_at\": \"2014-11-18T14:35:36-05:00\",\n" +
+        "      \"width\": 4000,\n" +
+        "      \"height\": 3000,\n" +
+        "      \"color\": \"#A7A2A1\",\n" +
+        "      \"blur_hash\": \"LaLXMa9Fx[D%~q%MtQM|kDRjtRIU\",\n" +
+        "      \"likes\": 286,\n" +
+        "      \"liked_by_user\": false,\n" +
+        "      \"description\": \"A man drinking a coffee.\",\n" +
+        "      \"user\": {\n" +
+        "        \"id\": \"Ul0QVz12Goo\",\n" +
+        "        \"username\": \"ugmonk\",\n" +
+        "        \"name\": \"Jeff Sheldon\",\n" +
+        "        \"first_name\": \"Jeff\",\n" +
+        "        \"last_name\": \"Sheldon\",\n" +
+        "        \"instagram_username\": \"instantgrammer\",\n" +
+        "        \"twitter_username\": \"ugmonk\",\n" +
+        "        \"portfolio_url\": \"http://ugmonk.com/\",\n" +
+        "        \"profile_image\": {\n" +
+        "          \"small\": \"https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32&s=7cfe3b93750cb0c93e2f7caec08b5a41\",\n" +
+        "          \"medium\": \"https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64&s=5a9dc749c43ce5bd60870b129a40902f\",\n" +
+        "          \"large\": \"https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202\"\n" +
+        "        },\n" +
+        "        \"links\": {\n" +
+        "          \"self\": \"https://api.unsplash.com/users/ugmonk\",\n" +
+        "          \"html\": \"http://unsplash.com/@ugmonk\",\n" +
+        "          \"photos\": \"https://api.unsplash.com/users/ugmonk/photos\",\n" +
+        "          \"likes\": \"https://api.unsplash.com/users/ugmonk/likes\"\n" +
+        "        }\n" +
+        "      },\n" +
+        "      \"current_user_collections\": [],\n" +
+        "      \"urls\": {\n" +
+        "        \"raw\": \"https://images.unsplash.com/photo-1416339306562-f3d12fefd36f\",\n" +
+        "        \"full\": \"https://hd.unsplash.com/photo-1416339306562-f3d12fefd36f\",\n" +
+        "        \"regular\": \"https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=92f3e02f63678acc8416d044e189f515\",\n" +
+        "        \"small\": \"https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=263af33585f9d32af39d165b000845eb\",\n" +
+        "        \"thumb\": \"https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=8aae34cf35df31a592f0bef16e6342ef\"\n" +
+        "      },\n" +
+        "      \"links\": {\n" +
+        "        \"self\": \"https://api.unsplash.com/photos/eOLpJytrbsQ\",\n" +
+        "        \"html\": \"http://unsplash.com/photos/eOLpJytrbsQ\",\n" +
+        "        \"download\": \"http://unsplash.com/photos/eOLpJytrbsQ/download\"\n" +
+        "      }\n" +
+        "    }\n" +
+        "  ]\n" +
+        "}\n" +
+        "\n"

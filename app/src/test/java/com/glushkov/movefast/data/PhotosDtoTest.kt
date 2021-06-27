@@ -1,9 +1,10 @@
 package com.glushkov.movefast.data
 
 import com.glushkov.movefast.data.constants.*
-import com.glushkov.movefast.data.dto.LinksDto
+import com.glushkov.movefast.data.dto.misc.LinksDto
 import com.glushkov.movefast.data.dto.PhotoDto
-import com.glushkov.movefast.data.dto.UrlsDto
+import com.glushkov.movefast.data.dto.misc.UrlsDto
+import com.glushkov.movefast.data.dto.search.SearchDto
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import org.junit.Assert
@@ -17,6 +18,15 @@ class PhotosDtoTest {
         val result: UrlsDto = GsonBuilder().create().fromJson(urlsObject, urlsType)
         Assert.assertNotNull(result)
         Assert.assertEquals(result.raw, rawCheckValue)
+    }
+
+    @Test
+    fun testSearch_parsedCorrectly() {
+        val searchType = object : TypeToken<SearchDto>(){}.type
+        val result: SearchDto = GsonBuilder().create().fromJson(searchResponse, searchType)
+        Assert.assertNotNull(result)
+        Assert.assertEquals(result.totalPages, totalPagesCheckValue)
+        Assert.assertEquals(result.results.first().id, searchItemIdCheckValue)
     }
 
     @Test

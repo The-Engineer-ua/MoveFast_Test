@@ -1,4 +1,4 @@
-package com.glushkov.movefast.data.dto
+package com.glushkov.movefast.data.dto.misc
 
 data class ProfileImageDto(
     val small: String?,

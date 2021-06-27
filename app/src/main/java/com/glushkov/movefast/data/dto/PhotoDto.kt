@@ -1,5 +1,8 @@
 package com.glushkov.movefast.data.dto
 
+import com.glushkov.movefast.data.dto.misc.LinksDto
+import com.glushkov.movefast.data.dto.misc.UrlsDto
+import com.glushkov.movefast.data.dto.misc.UserDto
 import com.google.gson.annotations.SerializedName
 
 data class PhotoDto(
