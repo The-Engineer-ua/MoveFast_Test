@@ -77,6 +77,12 @@ class HomeFragment : Fragment() {
                 )
             )
         }
+
+        //Handle favorite actions
+        photosAdapter.setOnFavClick {  id ->
+            vm.handleFavorite(id)
+        }
+
         //Create search flow
         binding.floatingActionButton.setOnClickListener {
             showSearchDialog()

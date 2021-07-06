@@ -3,6 +3,7 @@ package com.glushkov.movefast
 import android.app.Application
 import com.glushkov.movefast.di.networkModule
 import com.glushkov.movefast.di.repositoryModule
+import com.glushkov.movefast.di.storageModule
 import com.glushkov.movefast.di.viewModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -17,7 +18,8 @@ class BaseApplication : Application() {
             modules(listOf(
                 networkModule,
                 repositoryModule,
-                viewModule
+                viewModule,
+                storageModule
             ))
         }
     }
